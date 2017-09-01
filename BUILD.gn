@@ -1,0 +1,34 @@
+# ==================================================
+# vars
+
+src_dir = "."
+
+config("tpl_config") {
+  include_dirs = [ "$src_dir" ]
+}
+
+static_library("tpl") {
+  sources = [
+    "process.hpp",
+    "process.cpp",
+  ]
+  
+  if (is_win) {
+    defines = [ "_CRT_SECURE_NO_WARNINGS" ]
+    sources += [ "process_win.cpp" ]
+  } else {
+    sources += [ "process_unix.cpp" ]
+  }
+  
+  public_configs = [ ":tpl_config" ]
+}
+
+# ==================================================
+# executables
+
+executable("examples") {
+  sources = [ "examples.cpp" ]
+  deps = [
+    ":tpl",
+  ]
+}
