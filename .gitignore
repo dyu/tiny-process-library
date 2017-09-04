@@ -1,6 +1,6 @@
 # https://github.com/github/gitignore/blob/master/CMake.gitignore
+/gn-build
 /gn-out
-/build
 /.gn
 CMakeCache.txt
 CMakeFiles

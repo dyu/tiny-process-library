@@ -42,9 +42,9 @@ make
 ```
 
 ## GN
-1. `git clone --depth 1 --single-branch -b master https://github.com/dyu/gn-build build`
+1. `git clone --depth 1 --single-branch -b ns https://github.com/dyu/gn-build`
 
-2. `echo 'buildconfig = "//build/config/BUILDCONFIG.gn"' > .gn`
+2. `echo 'buildconfig = "//gn-build/config/BUILDCONFIG.gn"' > .gn`
    On windows, exclude the single quote.
 
 3. On linux:
