@@ -14,7 +14,7 @@ static_library("tpl") {
   ]
   
   if (is_win) {
-    defines = [ "_CRT_SECURE_NO_WARNINGS" ]
+    defines = [ "/D_CRT_SECURE_NO_WARNINGS" ]
     sources += [ "process_win.cpp" ]
   } else {
     sources += [ "process_unix.cpp" ]

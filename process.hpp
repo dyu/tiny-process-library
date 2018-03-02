@@ -18,7 +18,7 @@ class Process {
 public:
 #ifdef _WIN32
   typedef unsigned long id_type; //Process id type
-  typedef void *fd_type; //File descriptor type
+  typedef void *fd_type;         //File descriptor type
 #ifdef UNICODE
   typedef std::wstring string_type;
 #else
@@ -32,7 +32,7 @@ public:
 private:
   class Data {
   public:
-    Data() noexcept ;
+    Data() noexcept;
     id_type id;
 #ifdef _WIN32
     void *handle;
@@ -61,6 +61,8 @@ public:
   id_type get_id() const noexcept;
   ///Wait until process is finished, and return exit status.
   int get_exit_status() noexcept;
+  ///If process is finished, returns true and sets the exit status. Returns false otherwise.
+  bool try_get_exit_status(int &exit_status) noexcept;
   ///Write to stdin.
   bool write(const char *bytes, size_t n);
   ///Write to stdin. Convenience function using write(const char *, size_t).
